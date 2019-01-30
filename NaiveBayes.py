@@ -73,6 +73,8 @@ print("\n"*100)
 #  Loading Data
 DataFile = "C:\\Users\\Somnath\\Desktop\\tennis.csv"
 Data = pandas.read_csv(DataFile)
+Data.info()
+    
 
 # Quickly Check if the Data is correctly loaded or not
 ShowHeader("Sample Data")
