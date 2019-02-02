@@ -22,7 +22,7 @@ dataset = pandas.read_csv(DataFile)
 print(dataset.head(10))
 dataset.info()
 
-#  Separating the fiels and the output columns
+#  Separating the input fiels and the output columns
 fields = dataset.iloc[:, :-1].values  
 labels = dataset.iloc[:, 4].values  
 
@@ -33,9 +33,10 @@ labelValues = numpy.unique(labels, return_counts=True)
 print(labelValues[0])
 print(labelValues[1])
 
-
 #  Separating the Data into training and testing
-fields_train, fields_test, labels_train, labels_test = train_test_split(fields, labels, test_size=0.20)
+train_test_ratio =  0.8/0.2
+
+fields_train, fields_test, labels_train, labels_test = train_test_split(fields, labels, test_size = 1.0/(train_test_ratio + 1))
 
 # Normalizing Data
 scaler = StandardScaler()  
